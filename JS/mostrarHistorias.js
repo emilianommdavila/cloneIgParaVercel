@@ -42,7 +42,7 @@ const funcionMostrar = () => {
         const publicaciones = respuestaParseada.data;
         let a = -1;
         bucleHistorias();
-        setInterval(cambiarHIstoria, 1000);
+        setInterval(cambiarHIstoria, 5000);
 
         function bucleHistorias() {
           a++;
