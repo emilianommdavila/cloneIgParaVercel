@@ -1,0 +1,12 @@
+.fotoHistoria {
+  height: auto;
+  width: 100%;
+}
+
+#lugarParaPonerHistorias {
+  height: 100%;
+}
+.lugarParaMostrarHistorias {
+  height: 500px;
+  background-color: black;
+}
