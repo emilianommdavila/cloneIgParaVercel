@@ -1,5 +1,7 @@
 const lugarParaHistorias = document.querySelector("#lugarParaHistorias");
-const funcionMostrar = () => {
+const funcionMostrar = (soyElNumero) => {
+  numeroDelArray = soyElNumero.path[2].dataset.identificador;
+
   const lugarParaPonerHistorias = document.querySelector(
     "#lugarParaPonerHistorias"
   );
@@ -32,7 +34,6 @@ const funcionMostrar = () => {
     function cambiarSrc(src) {
       historiaSeleccionada = document.querySelector("#historiaNueva");
       historiaSeleccionada.src = src;
-      console.log("cambie");
     }
 
     function ajaxCallback() {
@@ -40,9 +41,9 @@ const funcionMostrar = () => {
         const respuestaAjax = ajax.response;
         const respuestaParseada = JSON.parse(respuestaAjax);
         const publicaciones = respuestaParseada.data;
-        let a = -1;
+        let a = numeroDelArray - 2;
         bucleHistorias();
-        setInterval(cambiarHIstoria, 5000);
+        setInterval(cambiarHIstoria, 1000);
 
         function bucleHistorias() {
           a++;
@@ -56,7 +57,7 @@ const funcionMostrar = () => {
           a++;
 
           const arrayFotos = publicaciones[a].historia;
-          console.log(arrayFotos);
+
           cambiarSrc(arrayFotos);
         }
       }
@@ -64,28 +65,28 @@ const funcionMostrar = () => {
   }
   mostrarHistoria();
 };
-
+let contador = 0;
 const historia = (publi) => {
   return `
-    <div class="child">
-    <div class="border">
+  <div class="child" data-identificador=${contador}>
+    <div class="border" >
     <img class="historia" id="historia" src="${publi.foto_usuario}" alt="">
     </div>
     <p class="textito">${publi.usuario}</p>
     </div>
-
+    
     `;
 };
 
 const mapeo_historias = (publi) => {
+  contador++;
   const elemento = document.createElement("historiasMapeadas");
+
   elemento.innerHTML = historia(publi);
-  elemento.addEventListener("click", funcionMostrar);
   return elemento;
 };
 
 const crear_historia = () => {
-  console.log("hola");
   const ajax = new XMLHttpRequest();
 
   ajax.open("GET", "historias.json");
@@ -100,6 +101,12 @@ const crear_historia = () => {
       const respuestaParseada = JSON.parse(respuesta);
       const historias = respuestaParseada.data;
       const map_historias = historias.map(mapeo_historias);
+      for (var i = 0; i < map_historias.length; i++) {
+        map_historias[i].addEventListener("click", function (hola) {
+          funcionMostrar(hola);
+        });
+      }
+
       map_historias.forEach((element) => {
         lugarParaHistorias.appendChild(element);
       });
