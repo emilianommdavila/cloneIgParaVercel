@@ -33,7 +33,12 @@
   color: #2ca7f7;
   margin-top: 5px;
   margin-bottom: 5px;
+  font-size: large;
 }
 .cancel {
   color: #ed4956;
+}
+.input {
+  height: 40px;
+  width: 100%;
 }
