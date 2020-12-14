@@ -36,6 +36,7 @@ function comprobar() {
       let variable = usuario.find((persona) => persona.usuario == this.usuario);
       if (variable) {
         location.href = "cloneIg.html";
+        localStorage.setItem("usuarioDeIngreso", this.usuario);
       } else {
         console.log("no funca el usuario");
         let element = document.querySelector("#error");

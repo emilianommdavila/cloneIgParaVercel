@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/cssPubli.css">
     <link href="CSS/stylenav.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="CSS/historia.css">
+    <link rel="stylesheet" href="CSS/formularioAnadir.css">
 
 
 </head>
@@ -42,6 +43,25 @@
 
     </main>
     <div class="linea"></div>
+    <!-- <form action="">
+        <input type="text" name="Foto" id="Foto">
+        <input type="text" name="Descripcion" id="Descripcion">
+        <button id="botonSubmit">a</button>
+         
+    </form> -->
+    <div class="form-popup" id="publicacionNueva">
+        <form class="anadirPublicacion">
+         
+         <b>Link de la foto</b>
+          <input class="input" type="text" placeholder="Link" name="fotoNueva"id="Foto" required >
+      
+          <b>Descripcion</b>
+          <input type="text" placeholder="Descripcion" name="Descripcion" id="Descripcion"required>
+      
+          <button id="botonSubmit" class="btn">Añadir</button>
+          <button type="submit" class="btn cancel" onclick="closeForm()">Cerrar</button>
+        </form>
+      </div>
     <footer>
         <a class="home2" href="cloneIg.html">
             <img src="assets/iconos/home2.png" alt="home2">
@@ -49,9 +69,9 @@
         <a class="explore" href="">
             <img src="assets/iconos/exploring.png" alt="explore">
         </a>
-        <a class="new_post_button" href="">
+        <div class="new_post_button" href="" id="botonParaAnadirHistorias">
             <img class="new_post" src="assets/iconos/new.png" alt="new post">
-        </a>
+        </div>
         </a class="new_post_button" href="">
         <a href="" class="activity_button">
             <img class="activity" src="assets/iconos/like.png" alt="activity">
@@ -66,5 +86,8 @@
 <script src="JS/historias/abrirHistorias.js"></script>
 <script src="JS/historias/cambiarVisibilidad.js"></script>
 <script src="JS/historias/cerrarHistorias.js"></script>
+<script src="JS/obtenerInfo.js"></script>
+<script src="JS/anadirPublicacion.js"></script>
+<script src="JS/indexLogin.js"></script>
 
 </html>

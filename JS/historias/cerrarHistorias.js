@@ -2,14 +2,15 @@ const contenedorParaPonerHistorias = document.querySelector(
   "#contenedorParaPonerHistorias"
 );
 
-const htmlParaHistorias = ` <div id="lugarParaPonerHistorias" class="lugarParaMostrarHistorias oculto">
-  <div id="cerrar" class="cerrar">cerrar</div>
-</div> `;
+// const htmlParaHistorias = ` <div id="lugarParaPonerHistorias" class="lugarParaMostrarHistorias oculto">
+//   <div id="cerrar" class="cerrar">cerrar</div>
+// </div> `;
 const cerrarHistorias = () => {
-  contenedorParaPonerHistorias.removeChild(
+  let hijos = contenedorParaPonerHistorias.removeChild(
     contenedorParaPonerHistorias.firstChild
   );
-  contenedorParaPonerHistorias.appendChild(htmlParaHistorias);
+  hijos;
+  // contenedorParaPonerHistorias.appendChild(htmlParaHistorias);
 };
 const botonCerrar = document.querySelector("#cerrar");
 botonCerrar.addEventListener("click", function () {

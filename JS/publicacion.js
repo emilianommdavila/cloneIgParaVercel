@@ -1,24 +1,25 @@
-const main = document.querySelector('#main');
-const publicacion = {
-    'data': [{
-        'usuario': 'docsito',
-        'foto_usuario': 'assets/perfil.jpg',
-        'foto_publicacion': 'assets/publi.jpg',
-        'descripcion': 'lorem ipsum lalala',
-        'likes': "0",
-        'comentarios': [{
-            'usuario': 'feinman',
-            'comentario': 'maquinaaaaaa'
-        }],
-        'guardar': 'false',
-    }]
-}
-
-
-
+const main = document.querySelector("#main");
+// const publicacion = {
+//   data: [
+//     {
+//       usuario: "docsito",
+//       foto_usuario: "assets/perfil.jpg",
+//       foto_publicacion: "assets/publi.jpg",
+//       descripcion: "lorem ipsum lalala",
+//       likes: "0",
+//       comentarios: [
+//         {
+//           usuario: "feinman",
+//           comentario: "maquinaaaaaa",
+//         },
+//       ],
+//       guardar: "false",
+//     },
+//   ],
+// };
 
 const tema = (publi) => {
-    return `
+  return `
     <section class="publicacion" id='publicacion'>
     <div >
         <div class="headerPublicacion">
@@ -46,7 +47,9 @@ const tema = (publi) => {
     </div>
     <div class="descripcion">
             <p class="contenido_descripcion">
-                <a class="perfilComentario" href="">${publi.usuario}</a> ${publi.descripcion}
+                <a class="perfilComentario" href="">${publi.usuario}</a> ${
+    publi.descripcion
+  }
             </p>
         </div>
         
@@ -57,68 +60,48 @@ const tema = (publi) => {
     </div>
     
     </section>
-    `
-}
+    `;
+};
 
 const coments = (comentarios) => {
-    return `
+  return `
         <div class="comentario">
         <p class="contenidoComentario">
             <a class="perfilComentario" href="">${comentarios.usuario}</a> ${comentarios.comentario}
         </p>
     </div>
-    `
-}
+    `;
+};
 const funcion_comentadora = (comentarioParametro) => {
-    return comentarioParametro.reduce((acu, item) => {
-        return acu + coments(item)
-    }, "")
-}
+  return comentarioParametro.reduce((acu, item) => {
+    return acu + coments(item);
+  }, "");
+};
 
 const map_function = (publi) => {
-    const elemento = document.createElement("article")
-    elemento.innerHTML = tema(publi)
-    return elemento
-}
+  const elemento = document.createElement("article");
+  elemento.innerHTML = tema(publi);
+  return elemento;
+};
 
-const crear_publicacion = () => {
+const crear_publicacion = (data) => {
+  //   console.log(data);
+  const map_publicaciones = data.map(map_function);
+  map_publicaciones.forEach((element) => {
+    main.appendChild(element);
+  });
+};
 
-    const ajax = new XMLHttpRequest();
-
-    ajax.open('GET', 'publicacion.json');
-
-    ajax.addEventListener('load', ajaxCallback);
-
-    ajax.send();
-
-    function ajaxCallback() {
-        if (ajax.status === 200) {
-            const respuesta = ajax.response;
-            const respuestaParseada = JSON.parse(respuesta);
-            const publicaciones = respuestaParseada.data;
-            const map_publicaciones = publicaciones.map(map_function);
-            map_publicaciones.forEach(element => {
-                main.appendChild(element)
-            })
-        }
-
-    }
-
-}
-
-
-
-crear_publicacion()
-    // function nueva_publicacion(){
-    //     const element = document.querySelector('#publicacion');
-    //         const fragment = document.createDocumentFragment();
-    //         const publicacion = document.createElement('div');
-    //         publicacion.textContent = "lalalalala";
-    //         const info_perfil = document.createElement('div');
-    //         info_perfil.classList.add('infoPerfil');
-    //         publicacion.appendChild(info_perfil);
-    //         fragment.appendChild(publicacion);
-    //         element.appendChild(fragment);
+// function nueva_publicacion(){
+//     const element = document.querySelector('#publicacion');
+//         const fragment = document.createDocumentFragment();
+//         const publicacion = document.createElement('div');
+//         publicacion.textContent = "lalalalala";
+//         const info_perfil = document.createElement('div');
+//         info_perfil.classList.add('infoPerfil');
+//         publicacion.appendChild(info_perfil);
+//         fragment.appendChild(publicacion);
+//         element.appendChild(fragment);
 
 //     }
 
