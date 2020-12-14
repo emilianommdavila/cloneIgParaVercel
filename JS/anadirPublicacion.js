@@ -16,9 +16,13 @@ function anadirPublicacion() {
   ];
   crear_publicacion(publicacion);
 }
-hola = document.querySelector("#botonSubmit");
-console.log(hola);
-hola.addEventListener("click", function (e) {
+const botonAnadir = document.querySelector("#botonSubmit");
+const botonCerrarAnadir = document.querySelector("#botonCerrar");
+
+botonCerrarAnadir.addEventListener("click", function (e) {
+  e.preventDefault();
+});
+botonAnadir.addEventListener("click", function (e) {
   e.preventDefault();
   e.stopPropagation();
   anadirPublicacion();
