@@ -38,6 +38,7 @@ const crear_historia = () => {
       const map_historias = historias.map(mapeo_historias);
       for (var i = 0; i < map_historias.length; i++) {
         map_historias[i].addEventListener("click", function (e) {
+          pararHistoria = false;
           funcionMostrar(e);
           cambiarVisibilidad();
         });

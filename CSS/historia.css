@@ -7,17 +7,12 @@
   height: 100%;
   width: 100%;
 }
-.oculto {
-  visibility: hidden;
-}
-.visible {
-  visibility: visible;
-}
+
 .lugarParaMostrarHistorias {
   height: 500px;
   background-color: black;
   position: fixed;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;

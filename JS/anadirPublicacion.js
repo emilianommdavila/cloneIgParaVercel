@@ -1,5 +1,4 @@
 function anadirPublicacion() {
-  console.log();
   const linkFoto = document.querySelector("#Foto").value;
   const descripcion = document.querySelector("#Descripcion").value;
   const usuarioDeIngreso = localStorage.getItem("usuarioDeIngreso");
@@ -15,6 +14,8 @@ function anadirPublicacion() {
     },
   ];
   crear_publicacion(publicacion);
+  document.querySelector("#Foto").value = "";
+  document.querySelector("#Descripcion").value = "";
 }
 const botonAnadir = document.querySelector("#botonSubmit");
 const botonCerrarAnadir = document.querySelector("#botonCerrar");

@@ -12,6 +12,7 @@ const obtenerInfo = () => {
       const respuesta = ajax.response;
       const respuestaParseada = JSON.parse(respuesta);
       const publicaciones = respuestaParseada.data;
+
       crear_publicacion(publicaciones);
     }
   }

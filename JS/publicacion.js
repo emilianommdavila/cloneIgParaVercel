@@ -1,4 +1,6 @@
 const main = document.querySelector("#main");
+const paraSeñalar = document.querySelector("#paraSeñalar");
+
 // const publicacion = {
 //   data: [
 //     {
@@ -88,9 +90,17 @@ const crear_publicacion = (data) => {
   //   console.log(data);
   const map_publicaciones = data.map(map_function);
   map_publicaciones.forEach((element) => {
-    main.appendChild(element);
+    main.insertBefore(element, paraSeñalar);
   });
 };
+// Esa funcion sirve para cambiar el orden en que se inserta, mirar despues
+// const insertAfter = (e, i) => {
+//   if (e.nextSibling) {
+//     e.parentNode.insertBefore(i, e.nextSibling);
+//   } else {
+//     e.parentNode.appendChild(i);
+//   }
+// };
 
 // function nueva_publicacion(){
 //     const element = document.querySelector('#publicacion');

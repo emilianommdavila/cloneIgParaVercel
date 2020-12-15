@@ -59,17 +59,21 @@ const funcionMostrar = (soyElNumero) => {
 
         function cambiarHistoria() {
           if (publicaciones.length > a) {
-            a++;
-            console.log(a);
-            console.log(publicaciones.length);
+            if (pararHistoria == true) {
+              clearInterval(intervalo);
+              console.log("pareIntervalo");
+            } else {
+              a++;
+              console.log(a);
+              console.log(publicaciones.length);
 
-            const arrayFotos = publicaciones[a].historia;
+              const arrayFotos = publicaciones[a].historia;
 
-            cambiarSrc(arrayFotos);
+              cambiarSrc(arrayFotos);
+            }
           } else {
             console.log("soy mayor");
             clearInterval(intervalo);
-            cerrarHistorias();
             cerrarHistorias();
           }
         }

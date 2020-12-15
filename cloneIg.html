@@ -15,11 +15,11 @@
 </head>
 
 <body>
-    <div id="contenedorParaPonerHistorias">
-    <div id="lugarParaPonerHistorias" class="lugarParaMostrarHistorias oculto">
-       <div id="cerrar" class="cerrar">cerrar</div>
+    
+    <div id="lugarParaPonerHistorias" class="lugarParaMostrarHistorias ">
+       <div id="cerrar" class="cerrar">x</div>
     </div>
-    </div>
+    
     <header>
         <a href="" class="new_story">
             <img class="story_cam" src="assets/iconos/new_act.png" alt="new story">
@@ -38,11 +38,12 @@
     </nav>
     <div class="linea"></div>
     <main id='main'>
+<div id="paraSeñalar"></div>
 
 
 
     </main>
-    <div class="linea"></div>
+    <div id="linea" class="linea"></div>
     <!-- <form action="">
         <input type="text" name="Foto" id="Foto">
         <input type="text" name="Descripcion" id="Descripcion">
@@ -62,7 +63,7 @@
           <button id="botonCerrar"class="btn cancel" onclick="closeForm()">Cerrar</button>
         </form>
       </div>
-    <footer>
+    <footer class="soyElFooter">
         <a class="home2" href="cloneIg.html">
             <img src="assets/iconos/home2.png" alt="home2">
         </a>
@@ -76,8 +77,8 @@
         <a href="" class="activity_button">
             <img class="activity" src="assets/iconos/like.png" alt="activity">
         </a>
-        <a class="profile_button">
-            <img class="profile" src="assets/iconos/profile.png" alt="your profile">
+        <a class="profile_button" >
+            <img id="profile_img" class="profile" src="assets/iconos/profile.png" alt="your profile">
         </a>
     </footer>
 </body>
@@ -88,6 +89,7 @@
 <script src="JS/historias/cerrarHistorias.js"></script>
 <script src="JS/obtenerInfo.js"></script>
 <script src="JS/anadirPublicacion.js"></script>
-<script src="JS/indexLogin.js"></script>
+<script src="JS/inicioDeSesion.js"></script>
+<!-- <script src="JS/indexLogin.js"></script> -->
 
 </html>
